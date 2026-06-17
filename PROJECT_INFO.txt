@@ -1,0 +1,5 @@
+Repository Name:
+VRChat-Photo-Organizer
+
+Repository Description:
+A simple GUI tool that organises VRChat photos by world and date using embedded VRChat/VRCX metadata, with people.txt generation for detected users.
