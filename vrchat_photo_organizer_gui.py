@@ -245,7 +245,7 @@ class PhotoOrganizerApp:
 
         desc = ttk.Label(
             main,
-            text="Organises VRChat photos by World > Date using embedded VRChat/VRCX metadata, then creates people.txt files where possible.",
+            text="Organises VRChat photos by World > Date using embedded VRChat/VRCX metadata. Photos with missing metadata go into one Miscellaneous Photos folder.",
             wraplength=720,
         )
         desc.pack(anchor="w", pady=(4, 14))
@@ -363,8 +363,12 @@ class PhotoOrganizerApp:
 
                     if world_name == "Unknown_World":
                         unknown += 1
+                        target_folder = base / "Miscellaneous Photos"
+                        log_target = "Miscellaneous Photos"
+                    else:
+                        target_folder = base / world_name / f"{date_str} - {world_name}"
+                        log_target = f"{world_name}\\{date_str} - {world_name}"
 
-                    target_folder = base / world_name / f"{date_str} - {world_name}"
                     target_folder.mkdir(parents=True, exist_ok=True)
 
                     add_people(people_by_folder[target_folder], meta)
@@ -373,7 +377,7 @@ class PhotoOrganizerApp:
                     shutil.move(str(path), str(dest))
                     moved += 1
 
-                    file_log(f"[{index}/{total}] Moved: {path.name} -> {world_name}\\{date_str} - {world_name}")
+                    file_log(f"[{index}/{total}] Moved: {path.name} -> {log_target}")
 
                 except Exception as e:
                     errors += 1
@@ -405,7 +409,7 @@ class PhotoOrganizerApp:
             file_log("")
             file_log("Done.")
             file_log(f"Moved: {moved}")
-            file_log(f"Unknown world files: {unknown}")
+            file_log(f"Miscellaneous photos: {unknown}")
             file_log(f"Errors: {errors}")
 
             self.set_status("Done.")
@@ -413,7 +417,7 @@ class PhotoOrganizerApp:
                 0,
                 lambda: messagebox.showinfo(
                     "Finished",
-                    f"Organising complete.\n\nMoved: {moved}\nUnknown: {unknown}\nErrors: {errors}"
+                    f"Organising complete.\n\nMoved: {moved}\nMiscellaneous photos: {unknown}\nErrors: {errors}"
                 )
             )
 
