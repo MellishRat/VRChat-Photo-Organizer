@@ -1,5 +1,7 @@
 # VRChat Photo Organizer
 
+![VRChat Photo Organizer](app_Screenshot.png)
+
 A simple Windows-friendly GUI tool for organising VRChat photos.
 
 It reads embedded VRChat/VRCX-style metadata from PNG photos, then sorts them into folders by world and date.
@@ -27,6 +29,8 @@ This tool is intended for VRChat photos that contain embedded metadata, typicall
 Standard SteamVR screenshots, Quest screenshots, Windows screenshots, headset captures, and images that do not contain readable VRChat metadata will be sorted into `Unknown_World`.
 
 ## Folder structure
+
+![Example of organised photos](Example%20of%20organised%20photos.png)
 
 When metadata is found, photos are sorted like this:
 
@@ -123,3 +127,15 @@ Test it on a copied photo folder first before running it on your main collection
 I take a lot of photos in VRChat worlds, especially for worldbuilding, avatar previews, posters, memories, and community moments.
 
 This tool helps keep those photos organised by world and date, while also keeping track of who was in the instance when the metadata is available.
+
+## Support the Project
+
+This project is provided free of charge and open source.
+
+If you'd like to support continued development of VRChat tools, worldbuilding projects, utilities, and community resources, consider supporting me on Patreon:
+
+➡️ Patreon: https://www.patreon.com/Mellish_Penthouse
+
+Your support helps fund hosting costs, software development, VRChat world creation, and future open-source releases.
+
+Thank you for helping keep these projects available to the community.
